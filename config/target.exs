@@ -101,6 +101,21 @@ config :mdns_lite,
     }
   ]
 
+config :hello_nerves, :viewport,
+  name: :main_viewport,
+  size: {800, 600},
+  theme: :dark,
+  default_scene: HelloNerves.Scene.Components,
+  drivers: [
+    [
+      module: Scenic.Driver.Local,
+      position: [scaled: true, centered: true, orientation: :normal]
+      # name: :local,
+      # window: [resizeable: false, title: "hello_nerves"],
+      # on_close: :stop_system
+    ]
+  ]
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations

@@ -23,10 +23,23 @@ defmodule HelloNerves.Application do
 
   # List all child processes to be supervised
   def children(:host) do
+    viewport_config = Application.get_env(:hello_nerves, :viewport)
+
     [
       # Children that only run on the host
       # Starts a worker by calling: HelloNerves.Worker.start_link(arg)
-      # {HelloNerves.Worker, arg},
+      {Scenic, [viewport_config]},
+      HelloNerves.Sensors.Supervisor
+      # {HelloNerves.Worker, arg}
+    ]
+  end
+
+  def children(:rpi4) do
+    viewport_config = Application.get_env(:hello_nerves, :viewport)
+
+    [
+      {Scenic, [viewport_config]},
+      HelloNerves.Sensors.Supervisor
     ]
   end
 
