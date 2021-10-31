@@ -56,7 +56,8 @@ defmodule HelloNerves.MixProject do
       {:nerves_system_x86_64, "~> 1.17", runtime: false, targets: :x86_64},
       {:scenic, "~> 0.11.0-beta.0"},
       {:scenic_driver_local, "~> 0.11.0-beta.0"},
-      {:scenic_clock, "~> 0.11.0-beta.0"}
+      {:scenic_clock, "~> 0.11.0-beta.0"},
+      {:nerves_time_zones, "~> 0.1.2"}
     ]
   end
 
