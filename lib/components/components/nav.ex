@@ -55,6 +55,7 @@ defmodule HelloNerves.Component.Nav do
       |> dropdown(
         {[
            {"Sensor", HelloNerves.Scene.Sensor},
+           {"Crosshair", HelloNerves.Scene.Crosshair},
            {"Sensor (spec)", HelloNerves.Scene.SensorSpec},
            {"Primitives", HelloNerves.Scene.Primitives},
            {"Fills", HelloNerves.Scene.Fills},
