@@ -1,7 +1,6 @@
 defmodule HelloNerves.Scene.Crosshair do
   use Scenic.Scene
 
-  alias Scenic.ViewPort
   alias Scenic.Graph
   alias Scenic.Primitive
   import Scenic.Primitives
