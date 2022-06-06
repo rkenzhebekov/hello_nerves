@@ -63,12 +63,13 @@ config :vintage_net,
        type: VintageNetWiFi,
        vintage_net_wifi: %{
          networks: [
-           key_mgmt: :wpa_psk,
-           ssid: System.get_env("NERVES_NETWORK_SSID"),
-           psk: System.get_env("NERVES_NETWORK_PSK")
+           %{
+             key_mgmt: :wpa_psk,
+             ssid: System.get_env("NERVES_NETWORK_SSID"),
+             psk: System.get_env("NERVES_NETWORK_PSK")
+           }
          ]
-       },
-       ipv4: %{method: :dhcp}
+       }
      }}
   ]
 
