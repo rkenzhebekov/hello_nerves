@@ -57,7 +57,10 @@ defmodule HelloNerves.MixProject do
       {:scenic, "~> 0.11.0-beta.0"},
       {:scenic_driver_local, "~> 0.11.0-beta.0"},
       {:scenic_clock, "~> 0.11.0-beta.0"},
-      {:nerves_time_zones, "~> 0.2.0"}
+      {:nerves_time_zones, "~> 0.2.0"},
+      # {:scenic_driver_nerves_touch,
+      #  github: "boydm/scenic_driver_nerves_touch", branch: "v0.11", targets: @all_targets}
+      {:scenic_driver_nerves_touch, path: "../scenic_driver_nerves_touch", targets: @all_targets}
     ]
   end
 

@@ -6,6 +6,7 @@ defmodule HelloNerves.Scene.Crosshair do
   import Scenic.Primitives
 
   alias HelloNerves.Component.Nav
+  require Logger
 
   @width 10000
   @height 10000
@@ -13,7 +14,7 @@ defmodule HelloNerves.Scene.Crosshair do
   @input_classes [:cursor_button, :cursor_scroll, :cursor_pos]
 
   @graph Graph.build(font: :roboto, font_size: 16)
-         |> rect({@width, @height}, id: :background)
+         |> rect({@width, @height}, id: :background, input: @input_classes)
          |> text("Touch the screen to start", id: :pos, translate: {21, 80})
          |> line({{0, 100}, {@width, 100}}, stroke: {4, :white}, id: :cross_hair_h, hidden: true)
          |> line({{100, 0}, {100, @height}}, stroke: {4, :white}, id: :cross_hair_v, hidden: true)
@@ -30,7 +31,7 @@ defmodule HelloNerves.Scene.Crosshair do
       |> assign(graph: @graph)
       |> push_graph(@graph)
 
-    :ok = request_input(scene, @input_classes)
+    # :ok = request_input(scene, @input_classes)
     {:ok, scene}
   end
 
@@ -39,6 +40,9 @@ defmodule HelloNerves.Scene.Crosshair do
 
   # --------------------------------------------------------
   def handle_input({:cursor_pos, {x, y}}, _context, %{assigns: %{graph: graph}} = scene) do
+    IO.inspect({x, y}, label: "Input - cursor_pos")
+    Logger.info("Input - cursor_pos {#{x}, #{y}")
+
     graph =
       graph
       |> Graph.modify(:cross_hair_h, fn p ->
@@ -69,6 +73,9 @@ defmodule HelloNerves.Scene.Crosshair do
         _context,
         %{assigns: %{graph: graph}} = scene
       ) do
+    IO.inspect({x, y}, label: "Input - btn_left - pressed")
+    Logger.info("Input - cursor_button {#{x}, #{y} - pressed")
+
     graph =
       graph
       |> Graph.modify(:cross_hair_h, fn p ->
@@ -101,6 +108,9 @@ defmodule HelloNerves.Scene.Crosshair do
         _context,
         %{assigns: %{graph: graph}} = scene
       ) do
+    IO.inspect({x, y}, label: "Input - btn_left - released")
+    Logger.info("Input - cursor_button {#{x}, #{y} - released")
+
     graph =
       Graph.modify(graph, :cross_hair_h, fn p ->
         Primitive.put_style(p, :hidden, true)
@@ -128,6 +138,7 @@ defmodule HelloNerves.Scene.Crosshair do
   @impl Scenic.Scene
   def handle_input(evt, _ctx, scene) do
     IO.inspect({evt, scene}, label: "Input: ")
+    Logger.info("unhandled Input - ")
     {:noreply, scene}
   end
 end
