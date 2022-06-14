@@ -107,6 +107,7 @@ config :hello_nerves, :viewport,
   size: {800, 600},
   theme: :dark,
   default_scene: HelloNerves.Scene.Crosshair,
+  # default_scene: HelloNerves.Scene.Components,
   drivers: [
     [
       module: Scenic.Driver.Local,
