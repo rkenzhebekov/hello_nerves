@@ -58,9 +58,9 @@ defmodule HelloNerves.MixProject do
       # {:nerves_system_bbb, "~> 2.14", runtime: false, targets: :bbb},
       # {:nerves_system_osd32mp1, "~> 0.10", runtime: false, targets: :osd32mp1},
       # {:nerves_system_x86_64, "~> 1.19", runtime: false, targets: :x86_64},
-      {:scenic, "~> 0.11.0-beta.0"},
-      {:scenic_driver_local, "~> 0.11.0-beta.0"},
-      {:scenic_clock, "~> 0.11.0-beta.0"},
+      {:scenic, "~> 0.11.1"},
+      {:scenic_driver_local, "~> 0.11.0"},
+      {:scenic_clock, "~> 0.11.0"},
       {:nerves_time_zones, "~> 0.2.0"}
       # {:scenic_driver_nerves_touch,
       # github: "rkenzhebekov/scenic_driver_nerves_touch", branch: "v0.11", targets: @all_targets}
