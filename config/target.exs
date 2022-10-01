@@ -106,20 +106,19 @@ config :hello_nerves, :viewport,
   name: :main_viewport,
   size: {800, 600},
   theme: :dark,
-  default_scene: HelloNerves.Scene.Crosshair,
-  # default_scene: HelloNerves.Scene.Components,
+  default_scene: HelloNerves.Scene.Transforms,
   drivers: [
     [
       module: Scenic.Driver.Local,
-      position: [scaled: true, centered: true, orientation: :normal],
-      debug: true
-      # name: :local,
-      # window: [resizeable: false, title: "hello_nerves"],
-      # on_close: :stop_system
+      debug: true,
+      name: :local,
+      window: [resizeable: false, title: "hello_nerves"],
+      on_close: :stop_system
     ],
     [
       module: Scenic.Driver.Nerves.Touch,
-      device: "raspberrypi-ts",
+      device: "generic ft5x06",
+      # device: "raspberrypi-ts",
       calibration: {{1, 0, 0}, {0, 1, 0}}
     ]
   ]

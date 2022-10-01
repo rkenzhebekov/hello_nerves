@@ -35,6 +35,7 @@ defmodule HelloNerves.Application do
   end
 
   def children(:rpi4) do
+    Process.sleep(5000)
     viewport_config = Application.get_env(:hello_nerves, :viewport)
 
     [

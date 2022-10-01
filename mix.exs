@@ -31,7 +31,7 @@ defmodule HelloNerves.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.7.4", runtime: false},
+      {:nerves, "~> 1.8.0", runtime: false},
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
@@ -53,7 +53,12 @@ defmodule HelloNerves.MixProject do
       # {:nerves_system_rpi4, "~> 1.19", runtime: false, targets: :rpi4},
 
       # using local version of nerves_system_rpi4 to test full-kms branch
-      {:nerves_system_rpi4, "~> 1.20.1", runtime: false, targets: :rpi4},
+      {:nerves_system_rpi4,
+       github: "nerves-project/nerves_system_rpi4",
+       branch: "full-kms",
+       runtime: false,
+       nerves: [compile: true],
+       targets: :rpi4},
 
       # {:nerves_system_bbb, "~> 2.14", runtime: false, targets: :bbb},
       # {:nerves_system_osd32mp1, "~> 0.10", runtime: false, targets: :osd32mp1},
@@ -61,10 +66,10 @@ defmodule HelloNerves.MixProject do
       {:scenic, "~> 0.11.1"},
       {:scenic_driver_local, "~> 0.11.0"},
       {:scenic_clock, "~> 0.11.0"},
-      {:nerves_time_zones, "~> 0.2.0"}
+      {:nerves_time_zones, "~> 0.2.0"},
       # {:scenic_driver_nerves_touch,
       # github: "rkenzhebekov/scenic_driver_nerves_touch", branch: "v0.11", targets: @all_targets}
-      # {:scenic_driver_nerves_touch, path: "../scenic_driver_nerves_touch", targets: @all_targets}
+      {:scenic_driver_nerves_touch, path: "../scenic_driver_nerves_touch", targets: @all_targets}
     ]
   end
 
