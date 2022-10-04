@@ -106,7 +106,7 @@ config :hello_nerves, :viewport,
   name: :main_viewport,
   size: {800, 600},
   theme: :dark,
-  default_scene: HelloNerves.Scene.Transforms,
+  default_scene: HelloNerves.Scene.Crosshair,
   drivers: [
     [
       module: Scenic.Driver.Local,
@@ -117,8 +117,8 @@ config :hello_nerves, :viewport,
     ],
     [
       module: Scenic.Driver.Nerves.Touch,
-      device: "generic ft5x06",
-      # device: "raspberrypi-ts",
+      # device: "generic ft5x06",
+      device: "raspberrypi-ts",
       calibration: {{1, 0, 0}, {0, 1, 0}}
     ]
   ]
