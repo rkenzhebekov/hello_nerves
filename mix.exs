@@ -53,12 +53,7 @@ defmodule HelloNerves.MixProject do
       # {:nerves_system_rpi4, "~> 1.19", runtime: false, targets: :rpi4},
 
       # using local version of nerves_system_rpi4 to test full-kms branch
-      {:nerves_system_rpi4,
-       github: "nerves-project/nerves_system_rpi4",
-       branch: "full-kms",
-       runtime: false,
-       nerves: [compile: true],
-       targets: :rpi4},
+      {:nerves_system_rpi4, "~> 1.20", runtime: false, targets: :rpi4},
 
       # {:nerves_system_bbb, "~> 2.14", runtime: false, targets: :bbb},
       # {:nerves_system_osd32mp1, "~> 0.10", runtime: false, targets: :osd32mp1},
