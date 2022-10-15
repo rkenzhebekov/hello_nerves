@@ -17,4 +17,5 @@ config :hello_nerves, :viewport,
     ]
   ]
 
-config :nerves_time_zones, data_dir: "./tmp/nerves_time_zones"
+# config :nerves_time_zones, data_dir: "./tmp/nerves_time_zones"
+config :nerves_time_zones, default_time_zone: "America/Los_Angeles"

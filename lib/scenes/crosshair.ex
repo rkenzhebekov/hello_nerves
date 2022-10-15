@@ -109,7 +109,7 @@ defmodule HelloNerves.Scene.Crosshair do
         %{assigns: %{graph: graph}} = scene
       ) do
     IO.inspect({x, y}, label: "Input - btn_left - released")
-    Logger.info("Input - cursor_button {#{x}, #{y} - released")
+    Logger.info("Input - cursor_button {#{x}, #{y}} - released")
 
     graph =
       Graph.modify(graph, :cross_hair_h, fn p ->

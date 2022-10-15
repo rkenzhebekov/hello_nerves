@@ -41,30 +41,14 @@ defmodule HelloNerves.MixProject do
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
 
       # Dependencies for specific targets
-      # NOTE: It's generally low risk and recommended to follow minor version
-      # bumps to Nerves systems. Since these include Linux kernel and Erlang
-      # version updates, please review their release notes in case
-      # changes to your application are needed.
-      # {:nerves_system_rpi, "~> 1.19", runtime: false, targets: :rpi},
-      # {:nerves_system_rpi0, "~> 1.19", runtime: false, targets: :rpi0},
-      # {:nerves_system_rpi2, "~> 1.19", runtime: false, targets: :rpi2},
-      # {:nerves_system_rpi3, "~> 1.19", runtime: false, targets: :rpi3},
-      # {:nerves_system_rpi3a, "~> 1.19", runtime: false, targets: :rpi3a},
-      # {:nerves_system_rpi4, "~> 1.19", runtime: false, targets: :rpi4},
-
-      # using local version of nerves_system_rpi4 to test full-kms branch
       {:nerves_system_rpi4, "~> 1.20", runtime: false, targets: :rpi4},
-
-      # {:nerves_system_bbb, "~> 2.14", runtime: false, targets: :bbb},
-      # {:nerves_system_osd32mp1, "~> 0.10", runtime: false, targets: :osd32mp1},
-      # {:nerves_system_x86_64, "~> 1.19", runtime: false, targets: :x86_64},
       {:scenic, "~> 0.11.1"},
       {:scenic_driver_local, "~> 0.11.0"},
       {:scenic_clock, "~> 0.11.0"},
       {:nerves_time_zones, "~> 0.2.0"},
-      # {:scenic_driver_nerves_touch,
-      # github: "rkenzhebekov/scenic_driver_nerves_touch", branch: "v0.11", targets: @all_targets}
-      {:scenic_driver_nerves_touch, path: "../scenic_driver_nerves_touch", targets: @all_targets}
+      # {:scenic_driver_nerves_touch, path: "../scenic_driver_nerves_touch", targets: @all_targets}
+      {:scenic_driver_nerves_touch,
+       github: "rkenzhebekov/scenic_driver_nerves_touch", branch: "v0.11", targets: :rpi4}
     ]
   end
 
